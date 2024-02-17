@@ -9,7 +9,7 @@ const handleSubmit = (event) => {
   const amount = Number(form.elements.amount.value);
 
   for (let position = 0; position < amount; position++) {
-    createPromise(position, delay)
+    createPromise(position + 1, delay)
       .then(({ position, delay }) => {
         console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
       })
@@ -19,6 +19,7 @@ const handleSubmit = (event) => {
 
     delay += step;
   }
+  form.reset();
 };
 
 form.addEventListener('submit', handleSubmit);
